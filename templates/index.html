@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Artists</title>
+</head>
+<body>
+    <h1>Spotify에서 검색한 아티스트</h1>
+    <ul>
+        {% for artist in artists %}
+        <li>
+            <strong>{{ artist.name }}</strong><br>
+            장르: {{ artist.genres|join(", ") }}<br>
+            팔로워: {{ artist.followers.total }}<br>
+            {% if artist.images %}
+                <img src="{{ artist.images[0].url }}" width="120"><br>
+            {% endif %}
+            Spotify 페이지: <a href="{{ artist.external_urls.spotify }}" target="_blank">[바로가기]</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
