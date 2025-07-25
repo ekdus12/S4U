@@ -1,0 +1,22 @@
+.backSearch{
+    border: 0px;
+}
+
+.backStart{
+    border: 0px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: whitesmoke;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    padding: 5%;
+}

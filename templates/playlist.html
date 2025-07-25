@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plist.css') }}">
+</head>
+<body>
+    <div>
+        <h1>@@님의 PICK! 리스트</h1>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
+            <div class="song-info">
+                <p>곡 제목</p>
+                <p>가수</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
+            <div class="song-info">
+                <p>곡 제목</p>
+                <p>가수</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
+            <div class="song-info">
+                <p>곡 제목</p>
+                <p>가수</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
+            <div class="song-info">
+                <p>곡 제목</p>
+                <p>가수</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="backSearch" type="button" onclick="location.href='/search'">검색페이지로 돌아가기</button>
+        <button class="backStart" type="button" onclick="">시작화면으로 돌아가기</button>
+    </div>
+</body>
+</html>
