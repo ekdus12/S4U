@@ -10,39 +10,14 @@
     <div>
         <h1>@@님의 PICK! 리스트</h1>
     </div>
-    <div class="grid">
-        <div class="card">
-            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
-            <div class="song-info">
-                <p>곡 제목</p>
-                <p>가수</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
-            <div class="song-info">
-                <p>곡 제목</p>
-                <p>가수</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
-            <div class="song-info">
-                <p>곡 제목</p>
-                <p>가수</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="album"><img src="{{ url_for('static', filename='/img/testimg.png') }}" style="width:100%; object-fit: contain;"></div>
-            <div class="song-info">
-                <p>곡 제목</p>
-                <p>가수</p>
-            </div>
-        </div>
+    <div class="gird" id="card-container"> <!--js로 처리-->
+
     </div>
     <div>
-        <button class="backSearch" type="button" onclick="location.href='/search'">검색페이지로 돌아가기</button>
-        <button class="backStart" type="button" onclick="">시작화면으로 돌아가기</button>
+        <button class="backSearch" type="button" onclick=location.href="{{ url_for('searchtab') }}">검색페이지로 돌아가기</button>
+        <button class="backStart" type="button" onclick="location.href=''">시작화면으로 돌아가기</button>
     </div>
+
+    <script src="{{ url_for('static', filename='js/card.js') }}" charset="utf-8"></script>
 </body>
 </html>
