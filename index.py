@@ -58,13 +58,23 @@ def signup():
     return render_template('signup.html')
 
 # 기타 페이지
-@app.route('/search')
-def search():
-    return render_template('search.html')
-
 @app.route('/survey')
 def survey():
     return render_template('survey.html')
+
+@app.route('/searchtab') #기존 search가 사라진 파일로 계속 경로를 설정해서 새파일 생성
+def searchtab():
+    #js에서 사용할 userId목록 전달
+    user_ids=list(user.userId for user in User.query.all())
+    print(user_ids) #서버 콘솔 확인용
+    return render_template('searchtab.html', user_ids=user_ids)
+
+@app.route('/playlist/<user_id>') #개인 유저별 플레이리스트를 보여주기 위함
+def playlist(user_id):
+    user = User.query.filter_by(userId=user_id).first()
+    if not user: #유저 없으면 이동 안 함
+        return redirect(url_for('searchtab'))
+    return render_template('playlist.html', user_id=user_id)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5500)

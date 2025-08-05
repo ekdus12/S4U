@@ -4,16 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/qna.css') }}">
-
+    <title>설문</title>
 </head>
 <body>
-    <!--뭘해도 질문이 안보이길래 일시적으로 추가한 버튼-->
-    <section id="testbtn">
-        <h1>시작하기</h1>
-        <button type="button" onclick="js:begin()">시작하기</button>
-    </section>
     <section id='qna'>
         <div class="qBox">
 
@@ -22,8 +16,20 @@
 
         </div>
     </section>
+    
+    <!--script 부분-->
     <script src="{{ url_for('static', filename='js/qnaData.js') }}" charset="utf-8"></script>
+    <script>
+        //결과로 가는 url 전달. start파일보다 먼저 선언되어야 함.
+        var tptargetUrl="{{ url_for('tempResult') }}";
+    </script>
     <script src="{{ url_for('static', filename='js/start.js') }}" charset="utf-8"></script>
-
+    
+    <!--페이지 로딩 후 자동 실행-->
+    <script>
+        window.onload = function() {
+            goBegin();
+        };
+    </script>
 </body>
 </html>

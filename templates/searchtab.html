@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/3a8ca08851.js" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/sbox.css') }}">-->
+    <title>검색</title>
+</head>
+<body>
+    <form class="search-box" onsubmit="return checkUser(event)">
+        <input id="search-input" class="search-txt" type="text" name="query" placeholder="검색할 ID를 입력하세요.">
+        <button class="search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </form>
+
+    <script>
+        const userIds={{ user_ids | tojson }};
+        console.log("userIds from flask: ", userIds);
+
+        function checkUser(event){
+            event.preventDefault();
+            const input=document.getElementById('search-input').value.trim();
+            if(userIds.includes(input)){
+                window.location.href=`/playlist/${input}`; //${}을 쓸때 url_for 사용 못함
+            }
+            else{
+                alert("존재하지 않는 사용자 입니다.");
+            }
+        }
+    </script>
+</body>
+</html>
