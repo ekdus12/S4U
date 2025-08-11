@@ -1,9 +1,6 @@
-// 로그인 - 로그아웃의 구체적인 내용은 수정 필요
-
 function login() {
     const userId = document.getElementById('inputID').value;
     const userNickname = document.getElementById('inputNickname').value;
-
     fetch('/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -12,9 +9,7 @@ function login() {
     .then(res => res.json())
     .then(result => {
         if (result.success) {
-            document.getElementById('userInfo').style.display = 'none';
-            document.getElementById('start').style.display = 'block';
-            document.getElementById('kakaoLogin').style.display='none';
+            window.location.href = result.redirect_url;
         } else {
             alert(result.message || '로그인 실패');
         }
@@ -25,7 +20,6 @@ function login() {
     });
 }
 
-
 function logout() {
     fetch('/logout', {
         method: 'POST',
@@ -34,8 +28,8 @@ function logout() {
     .then(response => response.json())
     .then(result => {
         if (result.success) {
-            document.getElementById('userInfo').classList.remove('hidden');
-            document.getElementById('start').classList.add('hidden');
+            alert('로그아웃 되었습니다.');
+            window.location.href = '/';
         } else {
             alert(result.message || '로그아웃에 실패했습니다.');
         }
